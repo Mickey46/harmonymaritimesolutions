@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Harmony Maritime Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    section h2 {
+      color: #1f2937;
+    }
+
+    footer {
+      background-color: #073b4c;
+    }
+
+    input,
+    textarea {
+      background-color: #f1faee;
+      border-radius: 0.375rem;
+    }
+
+    .hero-bg {
+      background-image: url('https://example.com/eco-maritime-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-blue-600 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold">Harmony Maritime Solutions</a>
+      <ul class="flex space-x-6 text-white">
+        <li><a href="#services" class="hover:underline">Services</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#products" class="hover:underline">Products</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-blue-900 bg-opacity-70 flex items-center justify-center">
+      <div class="text-center space-y-8 max-w-2xl mx-auto text-white px-4">
+        <h1 class="text-6xl font-bold">Eco-Friendly AI Solutions for the Maritime Industry</h1>
+        <p class="text-lg">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
+        <a href="#services" class="inline-block px-8 py-4 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition">Explore Our Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-center text-4xl font-bold mb-12">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+          <img src="https://example.com/barnacle-cleaning-icon.svg" class="mx-auto h-16 mb-4" alt="Barnacle Cleaning">
+          <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
+          <p>Our eco-friendly robotic systems ensure hulls are clean from barnacles, reducing fuel consumption and increasing vessel efficiency.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+          <img src="https://example.com/hull-crack-detection-icon.svg" class="mx-auto h-16 mb-4" alt="Hull Crack Detection">
+          <h3 class="text-xl font-semibold mb-2">Hull Crack Detection</h3>
+          <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+          <img src="https://example.com/security-icon.svg" class="mx-auto h-16 mb-4" alt="Maritime Security">
+          <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
+          <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-16 bg-gray-100">
+    <div class="container mx-auto">
+      <h2 class="text-center text-4xl font-bold mb-12">Our Products</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="https://example.com/eco-robot-icon.svg" class="mx-auto h-16 mb-4" alt="Eco-Robotic Cleaner">
+          <h3 class="text-xl font-semibold mb-2">Eco-Robotic Cleaner</h3>
+          <p>This eco-friendly, automated system performs complete underwater hull cleanings using non-abrasive technologies, helping vessels reduce drag and fuel consumption.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="https://example.com/ai-inspection-icon.svg" class="mx-auto h-16 mb-4" alt="AI Inspection Drone">
+          <h3 class="text-xl font-semibold mb-2">AI Inspection Drone</h3>
+          <p>Our AI-powered drone inspects both hull and superstructure for damage or maintenance needs, providing real-time data and alerts to ensure vessel integrity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-16 bg-blue-50">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12">About Us</h2>
+      <div class="max-w-3xl mx-auto">
+        <img src="https://example.com/about-image.jpg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
+        <p class="leading-relaxed text-lg mb-6">Harmony Maritime Solutions is at the forefront of AI innovation in the maritime industry. We offer eco-friendly, AI-driven technology for marine maintenance, security, and monitoring. Our commitment is to protect both your vessels and the environment.</p>
+        <p class="leading-relaxed text-lg">From reducing fuel consumption to ensuring security at marinas and docks, our team is dedicated to providing cutting-edge solutions that enhance efficiency and safety.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto">
+      <h2 class="text-center text-4xl font-bold mb-12">Contact Us</h2>
+      <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-800">
+        <div class="mb-6">
+          <label for="name" class="block text-lg mb-2">Your Name</label>
+          <input type="text" id="name" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300">
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block text-lg mb-2">Email</label>
+          <input type="email" id="email" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300">
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-lg mb-2">Message</label>
+          <textarea id="message" rows="4" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 bg-green-500 rounded-lg text-lg font-bold hover:bg-green-600">Send Message</button>
+      </form>
+      <div class="mt-8 text-center">
+        <p>Contact Person: Daniel Anderson</p>
+        <p>Phone: 561-484-9235</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Harmony Maritime Solutions. All rights reserved.</p>
+      <p>Follow us on <a href="#" class="underline">LinkedIn</a>, <a href="#" class="underline">Twitter</a>, and <a href="#" class="underline">Instagram</a>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Message Sent!');
+    });
+  </script>
+</body>
+
+</html>
+
