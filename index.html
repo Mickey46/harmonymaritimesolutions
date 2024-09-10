@@ -38,6 +38,44 @@
       align-items: center;
       height: 100%;
     }
+
+    .hover-grow {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hover-grow:hover {
+      transform: scale(1.05);
+    }
+
+    .svg-icon {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .fade-delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .fade-delay-3 {
+      animation-delay: 0.6s;
+    }
   </style>
 </head>
 
@@ -60,9 +98,9 @@
   <section class="hero-bg h-screen flex items-center justify-center relative">
     <div class="absolute inset-0 bg-blue-900 bg-opacity-70 flex items-center justify-center">
       <div class="text-center space-y-8 max-w-2xl mx-auto text-white px-4">
-        <h1 class="text-6xl font-bold">Eco-Friendly AI Solutions for the Maritime Industry</h1>
-        <p class="text-lg">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
-        <a href="#services" class="inline-block px-8 py-4 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition">Explore Our Solutions</a>
+        <h1 class="text-6xl font-bold fade-in">Eco-Friendly AI Solutions for the Maritime Industry</h1>
+        <p class="text-lg fade-in fade-delay-1">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
+        <a href="#services" class="inline-block px-8 py-4 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition hover-grow fade-in fade-delay-2">Explore Our Solutions</a>
       </div>
     </div>
   </section>
@@ -72,18 +110,18 @@
     <div class="container mx-auto">
       <h2 class="text-center text-4xl font-bold mb-12">Our Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-          <img src="https://example.com/barnacle-cleaning-icon.svg" class="mx-auto h-16 mb-4" alt="Barnacle Cleaning">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+          <img src="https://www.svgrepo.com/show/430247/cleaning.svg" class="mx-auto svg-icon mb-4" alt="Barnacle Cleaning">
           <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
           <p>Our eco-friendly robotic systems ensure hulls are clean from barnacles, reducing fuel consumption and increasing vessel efficiency.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-          <img src="https://example.com/hull-crack-detection-icon.svg" class="mx-auto h-16 mb-4" alt="Hull Crack Detection">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+          <img src="https://www.svgrepo.com/show/352464/search-detect.svg" class="mx-auto svg-icon mb-4" alt="Hull Crack Detection">
           <h3 class="text-xl font-semibold mb-2">Hull Crack Detection</h3>
           <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-          <img src="https://example.com/security-icon.svg" class="mx-auto h-16 mb-4" alt="Maritime Security">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+          <img src="https://www.svgrepo.com/show/348937/camera-surveillance.svg" class="mx-auto svg-icon mb-4" alt="Maritime Security">
           <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
           <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
         </div>
@@ -96,13 +134,13 @@
     <div class="container mx-auto">
       <h2 class="text-center text-4xl font-bold mb-12">Our Products</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-          <img src="https://example.com/eco-robot-icon.svg" class="mx-auto h-16 mb-4" alt="Eco-Robotic Cleaner">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+          <img src="https://www.svgrepo.com/show/354315/robotic-arm.svg" class="mx-auto svg-icon mb-4" alt="Eco-Robotic Cleaner">
           <h3 class="text-xl font-semibold mb-2">Eco-Robotic Cleaner</h3>
           <p>This eco-friendly, automated system performs complete underwater hull cleanings using non-abrasive technologies, helping vessels reduce drag and fuel consumption.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-          <img src="https://example.com/ai-inspection-icon.svg" class="mx-auto h-16 mb-4" alt="AI Inspection Drone">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+          <img src="https://www.svgrepo.com/show/354316/drone.svg" class="mx-auto svg-icon mb-4" alt="AI Inspection Drone">
           <h3 class="text-xl font-semibold mb-2">AI Inspection Drone</h3>
           <p>Our AI-powered drone inspects both hull and superstructure for damage or maintenance needs, providing real-time data and alerts to ensure vessel integrity.</p>
         </div>
@@ -115,7 +153,7 @@
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold mb-12">About Us</h2>
       <div class="max-w-3xl mx-auto">
-        <img src="https://example.com/about-image.jpg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
+        <img src="https://www.svgrepo.com/show/354289/ship.svg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
         <p class="leading-relaxed text-lg mb-6">Harmony Maritime Solutions is at the forefront of AI innovation in the maritime industry. We offer eco-friendly, AI-driven technology for marine maintenance, security, and monitoring. Our commitment is to protect both your vessels and the environment.</p>
         <p class="leading-relaxed text-lg">From reducing fuel consumption to ensuring security at marinas and docks, our team is dedicated to providing cutting-edge solutions that enhance efficiency and safety.</p>
       </div>
@@ -166,4 +204,3 @@
 </body>
 
 </html>
-
