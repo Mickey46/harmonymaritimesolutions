@@ -50,7 +50,7 @@
       height: 60px;
       fill: #1d4f6c;
     }
-    
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -114,11 +114,26 @@
   <nav class="bg-blue-600 p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <a href="#" class="text-white text-2xl font-bold">Harmony Maritime Solutions</a>
-      <ul class="flex space-x-6 text-white">
+      <ul class="flex space-x-6 text-white hidden md:flex">
         <li><a href="#services" class="hover:underline">Services</a></li>
         <li><a href="#about" class="hover:underline">About</a></li>
         <li><a href="#products" class="hover:underline">Products</a></li>
         <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+      <!-- Mobile Menu -->
+      <div class="md:hidden">
+        <button id="mobileMenuButton" class="text-white text-2xl focus:outline-none">
+          &#9776;
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden p-4 bg-blue-600">
+      <ul class="space-y-2 text-white">
+        <li><a href="#services" class="block hover:underline">Services</a></li>
+        <li><a href="#about" class="block hover:underline">About</a></li>
+        <li><a href="#products" class="block hover:underline">Products</a></li>
+        <li><a href="#contact" class="block hover:underline">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -127,18 +142,18 @@
   <section class="hero-bg flex items-center justify-center relative">
     <div class="absolute inset-0 bg-blue-900 bg-opacity-70 flex items-center justify-center">
       <div class="text-center space-y-8 max-w-2xl mx-auto text-white px-4">
-        <h1 class="text-6xl font-bold fade-in">Eco-Friendly AI Solutions for the Maritime Industry</h1>
-        <p class="text-lg fade-in fade-delay-1">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
-        <a href="#services" class="inline-block px-8 py-4 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition hover-grow fade-in fade-delay-2">Explore Our Solutions</a>
+        <h1 class="text-4xl md:text-6xl font-bold fade-in">Eco-Friendly AI Solutions for the Maritime Industry</h1>
+        <p class="text-md md:text-lg fade-in fade-delay-1">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
+        <a href="#services" class="inline-block px-6 md:px-8 py-3 md:py-4 bg-green-500 rounded-full text-white text-md md:text-lg font-semibold hover:bg-green-600 transition hover-grow fade-in fade-delay-2">Explore Our Solutions</a>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
   <section id="services" class="py-16 bg-white">
-    <div class="container mx-auto">
-      <h2 class="text-center text-4xl font-bold mb-12">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
           <img src="https://www.svgrepo.com/show/430247/cleaning.svg" class="mx-auto svg-icon mb-4" alt="Barnacle Cleaning">
           <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
@@ -160,9 +175,9 @@
 
   <!-- Products Section -->
   <section id="products" class="py-16 bg-gray-100">
-    <div class="container mx-auto">
-      <h2 class="text-center text-4xl font-bold mb-12">Our Products</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
           <img src="https://www.svgrepo.com/show/354315/robotic-arm.svg" class="mx-auto svg-icon mb-4" alt="Eco-Robotic Cleaner">
           <h3 class="text-xl font-semibold mb-2">Eco-Robotic Cleaner</h3>
@@ -179,8 +194,8 @@
 
   <!-- About Us Section -->
   <section id="about" class="py-16 bg-blue-50">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-12">About Us</h2>
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12">About Us</h2>
       <div class="max-w-3xl mx-auto">
         <img src="https://www.svgrepo.com/show/354289/ship.svg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
         <p class="leading-relaxed text-lg mb-6">Harmony Maritime Solutions is at the forefront of AI innovation in the maritime industry. We offer eco-friendly, AI-driven technology for marine maintenance, security, and monitoring. Our commitment is to protect both your vessels and the environment.</p>
@@ -191,8 +206,8 @@
 
   <!-- Contact Us Section -->
   <section id="contact" class="py-16 bg-blue-600 text-white">
-    <div class="container mx-auto">
-      <h2 class="text-center text-4xl font-bold mb-12">Contact Us</h2>
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
       <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-800">
         <div class="mb-6">
           <label for="name" class="block text-lg mb-2">Your Name</label>
@@ -223,8 +238,13 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for Mobile Menu Toggle -->
   <script>
+    document.getElementById('mobileMenuButton').addEventListener('click', function () {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
     document.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
       alert('Message Sent!');
