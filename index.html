@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +9,24 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
     }
 
     section h2 {
-      color: #1f2937;
+      color: #1d4f6c;
+      letter-spacing: 1.5px;
     }
 
     footer {
-      background-color: #073b4c;
-    }
-
-    input,
-    textarea {
-      background-color: #f1faee;
-      border-radius: 0.375rem;
+      background-color: #00293c;
     }
 
     .hero-bg {
-      background-image: url('https://example.com/eco-maritime-bg.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://example.com/eco-maritime-bg.jpg');
       background-size: cover;
       background-position: center;
+      height: 100vh;
     }
 
     .content-center {
@@ -40,16 +37,18 @@
     }
 
     .hover-grow {
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
     .hover-grow:hover {
       transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .svg-icon {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
+      fill: #1d4f6c;
     }
     
     .fade-in {
@@ -76,6 +75,36 @@
     .fade-delay-3 {
       animation-delay: 0.6s;
     }
+
+    /* Interactive hover effects for services */
+    .service-card:hover {
+      background-color: #e0f7fa;
+      transform: translateY(-5px);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Add AI-inspired gradients and shadows */
+    .gradient-text {
+      background: linear-gradient(90deg, #005f73, #0a9396, #94d2bd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ai-icon {
+      width: 100px;
+      height: 100px;
+      fill: #00a896;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 
@@ -95,7 +124,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-bg h-screen flex items-center justify-center relative">
+  <section class="hero-bg flex items-center justify-center relative">
     <div class="absolute inset-0 bg-blue-900 bg-opacity-70 flex items-center justify-center">
       <div class="text-center space-y-8 max-w-2xl mx-auto text-white px-4">
         <h1 class="text-6xl font-bold fade-in">Eco-Friendly AI Solutions for the Maritime Industry</h1>
@@ -110,17 +139,17 @@
     <div class="container mx-auto">
       <h2 class="text-center text-4xl font-bold mb-12">Our Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
           <img src="https://www.svgrepo.com/show/430247/cleaning.svg" class="mx-auto svg-icon mb-4" alt="Barnacle Cleaning">
           <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
           <p>Our eco-friendly robotic systems ensure hulls are clean from barnacles, reducing fuel consumption and increasing vessel efficiency.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
           <img src="https://www.svgrepo.com/show/352464/search-detect.svg" class="mx-auto svg-icon mb-4" alt="Hull Crack Detection">
           <h3 class="text-xl font-semibold mb-2">Hull Crack Detection</h3>
           <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
           <img src="https://www.svgrepo.com/show/348937/camera-surveillance.svg" class="mx-auto svg-icon mb-4" alt="Maritime Security">
           <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
           <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
