@@ -76,14 +76,12 @@
       animation-delay: 0.6s;
     }
 
-    /* Interactive hover effects for services */
     .service-card:hover {
       background-color: #e0f7fa;
       transform: translateY(-5px);
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
-    /* Add AI-inspired gradients and shadows */
     .gradient-text {
       background: linear-gradient(90deg, #005f73, #0a9396, #94d2bd);
       -webkit-background-clip: text;
@@ -106,7 +104,6 @@
       }
     }
 
-    /* New styles for consistent image sizes and rounded edges */
     img {
       max-width: 100%;
       height: auto;
@@ -133,14 +130,12 @@
         <li><a href="#products" class="hover:underline">Products</a></li>
         <li><a href="#contact" class="hover:underline">Contact</a></li>
       </ul>
-      <!-- Mobile Menu -->
       <div class="md:hidden">
         <button id="mobileMenuButton" class="text-white text-2xl focus:outline-none">
           &#9776;
         </button>
       </div>
     </div>
-    <!-- Mobile Menu Dropdown -->
     <div id="mobileMenu" class="hidden md:hidden p-4 bg-blue-600">
       <ul class="space-y-2 text-white">
         <li><a href="#services" class="block hover:underline">Services</a></li>
@@ -178,7 +173,7 @@
           <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
         </div>
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
-          <img src="https://www.researchgate.net/profile/Sung-Jun-Lee-4/publication/348522235/figure/fig3/AS:980335386976263@1610741578803/Model-3-Ship-detection-example-by-the-proposed-model-trained-using-SMD.png" alt="Maritime Security">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQGxsuELvIlEwg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1718690392471?e=1731542400&v=beta&t=LsmAqI4UK2eYmChmBlNIW7JhfoxLItCYeJU_OwqrKyo" alt="Maritime Security">
           <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
           <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
         </div>
@@ -210,7 +205,7 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-12">About Us</h2>
       <div class="max-w-3xl mx-auto">
-        <img src="https://knowhow.distrelec.com/wp-content/uploads/2023/07/iStock-1277731095.jpg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
+        <img src="https://www.svgrepo.com/show/354289/ship.svg" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
         <p class="leading-relaxed text-lg mb-6">Harmony Maritime Solutions is at the forefront of AI innovation in the maritime industry. We offer eco-friendly, AI-driven technology for marine maintenance, security, and monitoring. Our commitment is to protect both your vessels and the environment.</p>
         <p class="leading-relaxed text-lg">From reducing fuel consumption to ensuring security at marinas and docks, our team is dedicated to providing cutting-edge solutions that enhance efficiency and safety.</p>
       </div>
@@ -218,30 +213,30 @@
   </section>
 
   <!-- Contact Us Section -->
-  <section id="contact" class="py-16 bg-blue-600 text-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
-      <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-800">
-        <div class="mb-6">
-          <label for="name" class="block text-lg mb-2">Your Name</label>
-          <input type="text" id="name" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300">
-        </div>
-        <div class="mb-6">
-          <label for="email" class="block text-lg mb-2">Email</label>
-          <input type="email" id="email" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300">
-        </div>
-        <div class="mb-6">
-          <label for="message" class="block text-lg mb-2">Message</label>
-          <textarea id="message" rows="4" class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300"></textarea>
-        </div>
-        <button type="submit" class="w-full py-3 bg-green-500 rounded-lg text-lg font-bold hover:bg-green-600">Send Message</button>
-      </form>
-      <div class="mt-8 text-center">
-        <p>Contact Person: Daniel Anderson</p>
-        <p>Phone: 561-484-9235</p>
-      </div>
+  <!-- Contact Us Section -->
+<section id="contact" class="py-16 bg-blue-600 text-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
+    
+    <!-- Google Form Embed -->
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <iframe src="https://forms.gle/PSoZd9A2FGqp8VTP8"
+              width="100%" 
+              height="700" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0" 
+              style="border: none; padding: 0;">
+      </iframe>
     </div>
-  </section>
+    
+    <div class="mt-8 text-center text-white">
+      <p>Contact Person: Daniel Anderson</p>
+      <p>Phone: 561-484-9235</p>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-6">
@@ -257,12 +252,6 @@
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
     });
-
-    document.querySelector('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Message Sent!');
-    });
   </script>
 </body>
-
 </html>
