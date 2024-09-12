@@ -22,12 +22,25 @@
       background-color: #00293c;
     }
 
+    /* Hero section with a brighter background image */
     .hero-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://example.com/eco-maritime-bg.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662915.jpg?t=st=1726156573~exp=1726160173~hmac=a0f8dfc60c432fbd5248b8de21bdc827f5138a850765fbcf02b04b7951a95165&w=740');
       background-size: cover;
       background-position: center;
       height: 100vh;
+      position: relative;
     }
+
+    /* Contact section with a similar faded background image */
+    .contact-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/transport-logistics-products_23-2151541855.jpg?t=st=1726157854~exp=1726161454~hmac=ae7c77bbd411c3801a1f3db181a69ae43906312ea23a65c90050d8f4e99891c9&w=740');
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  padding: 60px 0;
+  color: white;
+}
+
 
     .content-center {
       display: flex;
@@ -43,12 +56,6 @@
     .hover-grow:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .svg-icon {
-      width: 60px;
-      height: 60px;
-      fill: #1d4f6c;
     }
 
     .fade-in {
@@ -212,31 +219,29 @@
     </div>
   </section>
 
-  <!-- Contact Us Section -->
-  <!-- Contact Us Section -->
-<section id="contact" class="py-16 bg-blue-600 text-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
-    
-    <!-- Google Form Embed -->
-    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <iframe src="https://forms.gle/PSoZd9A2FGqp8VTP8"
-              width="100%" 
-              height="700" 
-              frameborder="0" 
-              marginheight="0" 
-              marginwidth="0" 
-              style="border: none; padding: 0;">
-      </iframe>
+  <!-- Contact Us Section with a background image -->
+  <section id="contact" class="contact-bg text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
+      
+      <!-- Google Form Embed -->
+      <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <iframe src="https://forms.gle/PSoZd9A2FGqp8VTP8"
+                width="100%" 
+                height="700" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0" 
+                style="border: none; padding: 0;">
+        </iframe>
+      </div>
+      
+      <div class="mt-8 text-center text-white">
+        <p>Contact Person: Daniel Anderson</p>
+        <p>Phone: 561-484-9235</p>
+      </div>
     </div>
-    
-    <div class="mt-8 text-center text-white">
-      <p>Contact Person: Daniel Anderson</p>
-      <p>Phone: 561-484-9235</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-6">
