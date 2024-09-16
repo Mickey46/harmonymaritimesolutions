@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Harmony Maritime Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico">
   <style>
+    /* Custom Styles */
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
@@ -18,35 +20,20 @@
       letter-spacing: 1.5px;
     }
 
-    footer {
-      background-color: #00293c;
-    }
-
-    /* Hero section with a brighter background image */
     .hero-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662915.jpg?t=st=1726156573~exp=1726160173~hmac=a0f8dfc60c432fbd5248b8de21bdc827f5138a850765fbcf02b04b7951a95165&w=740');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662915.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
       position: relative;
     }
 
-    /* Contact section with a similar faded background image */
     .contact-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/transport-logistics-products_23-2151541855.jpg?t=st=1726157854~exp=1726161454~hmac=ae7c77bbd411c3801a1f3db181a69ae43906312ea23a65c90050d8f4e99891c9&w=740');
-  background-size: cover;
-  background-position: center;
-  height: auto;
-  padding: 60px 0;
-  color: white;
-}
-
-
-    .content-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/transport-logistics-products_23-2151541855.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 0;
+      color: white;
     }
 
     .hover-grow {
@@ -58,69 +45,21 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s forwards ease-in-out;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-delay-1 {
-      animation-delay: 0.2s;
-    }
-
-    .fade-delay-2 {
-      animation-delay: 0.4s;
-    }
-
-    .fade-delay-3 {
-      animation-delay: 0.6s;
-    }
-
     .service-card:hover {
       background-color: #e0f7fa;
       transform: translateY(-5px);
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #005f73, #0a9396, #94d2bd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .modal {
+      transition: opacity 0.25s ease;
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .ai-icon {
-      width: 100px;
-      height: 100px;
-      fill: #00a896;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 15px;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -131,23 +70,23 @@
   <nav class="bg-blue-600 p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <a href="#" class="text-white text-2xl font-bold">Harmony Maritime Solutions</a>
-      <ul class="flex space-x-6 text-white hidden md:flex">
+      <ul class="hidden md:flex space-x-6 text-white">
         <li><a href="#services" class="hover:underline">Services</a></li>
         <li><a href="#about" class="hover:underline">About</a></li>
         <li><a href="#products" class="hover:underline">Products</a></li>
+        <li><a href="#mantis" class="hover:underline">Mantis Vision System</a></li>
         <li><a href="#contact" class="hover:underline">Contact</a></li>
       </ul>
-      <div class="md:hidden">
-        <button id="mobileMenuButton" class="text-white text-2xl focus:outline-none">
-          &#9776;
-        </button>
-      </div>
+      <button id="mobileMenuButton" class="md:hidden text-white text-2xl focus:outline-none">
+        &#9776;
+      </button>
     </div>
     <div id="mobileMenu" class="hidden md:hidden p-4 bg-blue-600">
       <ul class="space-y-2 text-white">
         <li><a href="#services" class="block hover:underline">Services</a></li>
         <li><a href="#about" class="block hover:underline">About</a></li>
         <li><a href="#products" class="block hover:underline">Products</a></li>
+        <li><a href="#mantis" class="block hover:underline">Mantis Vision System</a></li>
         <li><a href="#contact" class="block hover:underline">Contact</a></li>
       </ul>
     </div>
@@ -157,9 +96,9 @@
   <section class="hero-bg flex items-center justify-center relative">
     <div class="absolute inset-0 bg-blue-900 bg-opacity-70 flex items-center justify-center">
       <div class="text-center space-y-8 max-w-2xl mx-auto text-white px-4">
-        <h1 class="text-4xl md:text-6xl font-bold fade-in">Eco-Friendly AI Solutions for the Maritime Industry</h1>
-        <p class="text-md md:text-lg fade-in fade-delay-1">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
-        <a href="#services" class="inline-block px-6 md:px-8 py-3 md:py-4 bg-green-500 rounded-full text-white text-md md:text-lg font-semibold hover:bg-green-600 transition hover-grow fade-in fade-delay-2">Explore Our Solutions</a>
+        <h1 class="text-4xl md:text-6xl font-bold">Eco-Friendly AI Solutions for the Maritime Industry</h1>
+        <p class="text-md md:text-lg">Leading the future of maritime maintenance and security with sustainable, cutting-edge technology.</p>
+        <a href="#services" class="inline-block px-6 md:px-8 py-3 md:py-4 bg-green-500 rounded-full text-white text-md md:text-lg font-semibold hover:bg-green-600 transition hover-grow">Explore Our Solutions</a>
       </div>
     </div>
   </section>
@@ -169,18 +108,21 @@
     <div class="container mx-auto px-4">
       <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Services</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
-          <img src="https://www.superyachtnews.com/articles/17508/Hull%20Robot.jpg" alt="Barnacle Cleaning">
+          <img src="https://www.superyachtnews.com/articles/17508/Hull%20Robot.jpg" alt="Barnacle Cleaning" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
           <p>Our eco-friendly robotic systems ensure hulls are clean from barnacles, reducing fuel consumption and increasing vessel efficiency.</p>
         </div>
+        <!-- Service 2 -->
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
-          <img src="https://global.canon/en/technology/img/frontier/head_img26.jpg" alt="Hull Crack Detection">
+          <img src="https://global.canon/en/technology/img/frontier/head_img26.jpg" alt="Hull Crack Detection" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Hull Crack Detection</h3>
           <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
         </div>
+        <!-- Service 3 -->
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
-          <img src="https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662914.jpg?t=st=1726169247~exp=1726172847~hmac=b406e86e449af8a5390aa454b005644dba412c8ba9585cee42d41803190b370f&w=360">
+          <img src="https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662914.jpg" alt="Maritime Security" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
           <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
         </div>
@@ -193,16 +135,44 @@
     <div class="container mx-auto px-4">
       <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Products</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+        <!-- Product 1 -->
         <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
-          <img src="https://assets.newatlas.com/dims4/default/78e104d/2147483647/strip/true/crop/640x427+0+27/resize/840x560!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fhull-bug.jpg" alt="Eco-Robotic Cleaner">
+          <img src="https://assets.newatlas.com/dims4/default/78e104d/2147483647/strip/true/crop/640x427+0+27/resize/840x560!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fhull-bug.jpg" alt="Eco-Robotic Cleaner" class="w-full h-64 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Eco-Robotic Cleaner</h3>
           <p>This eco-friendly, automated system performs complete underwater hull cleanings using non-abrasive technologies, helping vessels reduce drag and fuel consumption.</p>
         </div>
+        <!-- Product 2 -->
         <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
-          <img src="https://safety4sea.com/wp-content/uploads/2016/01/Sky-Futures-drone-inspection-e1537861025376.jpg" alt="AI Inspection Drone">
+          <img src="https://safety4sea.com/wp-content/uploads/2016/01/Sky-Futures-drone-inspection-e1537861025376.jpg" alt="AI Inspection Drone" class="w-full h-64 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">AI Inspection Drone</h3>
           <p>Our AI-powered drone inspects both hull and superstructure for damage or maintenance needs, providing real-time data and alerts to ensure vessel integrity.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mantis Vision System Showcase Section -->
+  <section id="mantis" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Introducing Our Mantis Vision System</h2>
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2">
+          <img src="https://media.npr.org/assets/img/2016/11/10/mantis-shrimp-3_custom-1582e77bad0a9fc9050cc028517e52a36bf4456c.jpg?s=800&c=85&f=webp" alt="Mantis Vision System" class="rounded-lg shadow-lg mb-8 md:mb-0">
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <h3 class="text-2xl font-semibold mb-4">Revolutionizing Maritime AI</h3>
+          <p class="mb-6">Our Mantis Vision System brings unprecedented accuracy and efficiency to maritime operations. Experience cutting-edge technology designed to enhance safety, optimize performance, and drive sustainable practices in the industry.</p>
+          <button id="demoButton" class="px-6 py-3 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition hover-grow">View Demo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 modal">
+      <div class="bg-white rounded-lg p-8 text-center" id="modalContent">
+        <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
+        <p class="mb-6">Stay tuned for the demo of our exciting new Mantis Vision System!</p>
+        <button id="closeModal" class="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 transition">Close</button>
       </div>
     </div>
   </section>
@@ -212,18 +182,18 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-12">About Us</h2>
       <div class="max-w-3xl mx-auto">
-        <img src="https://img.freepik.com/free-photo/aerial-view-cargo-ship-cargo-container-harbor_335224-1380.jpg?t=st=1726156466~exp=1726160066~hmac=cd80407325a1baa25982db5a278c7194663cfd51d363881f1aa4ac0086498cf7&w=740" class="rounded-lg shadow-lg mx-auto mb-8" alt="About Harmony Maritime Solutions">
+        <img src="https://img.freepik.com/free-photo/aerial-view-cargo-ship-cargo-container-harbor_335224-1380.jpg" alt="About Harmony Maritime Solutions" class="rounded-lg shadow-lg mx-auto mb-8">
         <p class="leading-relaxed text-lg mb-6">Harmony Maritime Solutions is at the forefront of AI innovation in the maritime industry. We offer eco-friendly, AI-driven technology for marine maintenance, security, and monitoring. Our commitment is to protect both your vessels and the environment.</p>
         <p class="leading-relaxed text-lg">From reducing fuel consumption to ensuring security at marinas and docks, our team is dedicated to providing cutting-edge solutions that enhance efficiency and safety.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Us Section with a background image -->
-  <section id="contact" class="contact-bg text-white">
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact-bg">
     <div class="container mx-auto px-4">
       <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Contact Us</h2>
-      
+
       <!-- Google Form Embed -->
       <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
         <iframe src="https://forms.gle/PSoZd9A2FGqp8VTP8"
@@ -235,10 +205,10 @@
                 style="border: none; padding: 0;">
         </iframe>
       </div>
-      
-      <div class="mt-8 text-center text-white">
+
+      <div class="mt-8 text-center">
         <p>Contact Person: Daniel Anderson</p>
-        <p>Phone: 561-484-9235</p>
+        <p>Phone: <a href="tel:561-484-9235" class="underline">561-484-9235</a></p>
       </div>
     </div>
   </section>
@@ -251,11 +221,32 @@
     </div>
   </footer>
 
-  <!-- JavaScript for Mobile Menu Toggle -->
+  <!-- JavaScript for Interactivity -->
   <script>
+    // Mobile Menu Toggle
     document.getElementById('mobileMenuButton').addEventListener('click', function () {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
+    });
+
+    // Modal Functionality
+    const demoButton = document.getElementById('demoButton');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+
+    demoButton.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeModal.addEventListener('click', (e) => {
+      modal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside the modal content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
     });
   </script>
 </body>
