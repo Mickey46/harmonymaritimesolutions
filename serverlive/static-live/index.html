@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantis Vision Demo</title>
+    <style>
+        /* Base styling similar to Harmony Maritime Solutions */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0c223b;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(0, 0, 50, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            max-width: 1200px;
+            width: 90%;
+            text-align: center;
+            margin: auto;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        h1 {
+            color: #00aaff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .logout {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .logout:hover {
+            background-color: #008fdd;
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #videoElement, #resultImage {
+            width: 48%;
+            height: 360px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 2px solid #00aaff;
+            object-fit: cover;
+        }
+
+        #resultImage {
+            display: none;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button, input {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #00aaff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover, input:hover {
+            background-color: #008fdd;
+        }
+
+        input {
+            background-color: #0c223b;
+            border: 2px solid #00aaff;
+            color: #ffffff;
+        }
+
+        input::placeholder {
+            color: #ccefff;
+        }
+
+        #canvasElement {
+            display: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #0c223b;
+            position: relative;
+            width: 100%;
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mantis Vision Demo</h1>
+        <button class="logout" onclick="logout()">Logout</button>
+        <div class="video-container">
+            <video id="videoElement" autoplay playsinline></video>
+            <img id="resultImage" alt="Analysis Result">
+        </div>
+        <div class="controls">
+            <button id="automaticButton">Automatic Detection</button>
+            <button id="manualButton">Manual Detection</button>
+            <input type="text" id="objectInput" placeholder="Enter object to find" style="display:inline-block;">
+        </div>
+        <canvas id="canvasElement"></canvas>
+    </div>
+
+    <footer>
+        &copy; 2024 Mantis Vision Demo by <a href="https://harmonymaritimesolutions.com" target="_blank">Harmony Maritime Solutions</a>
+    </footer>
+
+    <script>
+        const video = document.getElementById('videoElement');
+        const canvas = document.getElementById('canvasElement');
+        const resultImage = document.getElementById('resultImage');
+        const objectInput = document.getElementById('objectInput');
+        const automaticButton = document.getElementById('automaticButton');
+        const manualButton = document.getElementById('manualButton');
+
+        let ws;
+        let isAnalyzing = false;
+        let mode = 'automatic';  // Default mode
+
+        automaticButton.addEventListener('click', () => {
+            mode = 'automatic';
+            objectInput.style.display = 'none';  // Hide input box for automatic detection
+        });
+
+        manualButton.addEventListener('click', () => {
+            mode = 'manual';
+            objectInput.style.display = 'inline-block';  // Show input box for manual detection
+        });
+
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+            const wsUrl = `${protocol}://localhost:8000/ws`;
+
+            ws = new WebSocket(wsUrl);
+            ws.onopen = () => {
+                console.log("WebSocket connection opened");
+            };
+
+            ws.onmessage = handleWebSocketMessage;
+
+            ws.onerror = (error) => {
+                console.error("WebSocket error: ", error);
+            };
+
+            ws.onclose = (event) => {
+                console.log("WebSocket connection closed: ", event);
+                setTimeout(connectWebSocket, 1000); // Attempt to reconnect after 1 second
+            };
+        }
+
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.addEventListener('loadedmetadata', () => {
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        setInterval(captureAndAnalyze, 1000); // Analyze every second
+                    });
+                })
+                .catch(error => {
+                    console.error("Error accessing the webcam", error);
+                });
+        }
+
+        function captureAndAnalyze() {
+            if (isAnalyzing || ws.readyState !== WebSocket.OPEN) return;
+
+            isAnalyzing = true;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            
+            const imageDataUrl = canvas.toDataURL('image/jpeg');
+            let body = { image: imageDataUrl, task: mode };
+
+            if (mode === 'manual') {
+                body.object = objectInput.value.trim();  // Add object to find for manual mode
+            }
+
+            ws.send(JSON.stringify(body));
+        }
+
+        function handleWebSocketMessage(event) {
+            const data = JSON.parse(event.data);
+            if (data.image) {
+                resultImage.src = data.image;
+                resultImage.style.display = 'block';
+            } else if (data.error) {
+                console.error("Error from server:", data.error);
+            }
+            isAnalyzing = false;
+        }
+
+        function logout() {
+            localStorage.removeItem('token');  // Clear the token from localStorage
+            window.location.href = '/login';   // Redirect to the login page (replace '/login' with the actual login page URL)
+        }
+
+        // Start camera on page load
+        document.addEventListener('DOMContentLoaded', startCamera);
+        connectWebSocket();
+    </script>
+</body>
+</html>
