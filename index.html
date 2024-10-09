@@ -83,19 +83,30 @@
       pointer-events: auto;
     }
 
-    .logo {
-      height: 40px;
-      padding: 0;
-      margin: 0;
-      border-radius: 50%;
-      display: inline-block;
-    }
+    nav .logo {
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  border-radius: 50% 50% 50% 0%; /* Removes the round edge from the left bottom corner */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Vertically centers the content */
+}
 
-    @media (min-width: 768px) {
-      .logo {
-        height: 60px;
-      }
-    }
+nav .logo img {
+  height: 50px; /* Ensures the image height is consistent */
+  margin-right: 10px; /* Adds space between image and other content */
+}
+
+@media (min-width: 768px) {
+  nav .logo {
+    height: 60px; /* Increases logo height on larger screens */
+  }
+
+  nav .logo img {
+    height: 60px; /* Ensures the image scales with the logo */
+  }
+}
 
     /* Make buttons visually appealing */
     button {
