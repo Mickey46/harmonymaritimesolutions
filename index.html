@@ -13,7 +13,7 @@
 
   <!-- Open Graph Meta Tags for social media sharing -->
   <meta property="og:title" content="Harmony Maritime Solutions | AI-Driven Sustainable Maritime Innovations">
-  <meta property="og:description" content="Discover how Harmony Maritime Solutions is transforming the maritime industry with eco-friendly, AI-powered technologies. From reducing fuel consumption to ensuring maritime security, we provide smart solutions.">
+  <meta property="og:description" content="Discover how Harmony Maritime Solutions is transforming the maritime industry with eco-friendly, AI-powered technologies.">
   <meta property="og:image" content="https://yourwebsite.com/path-to-your-logo-or-main-image.jpg">
   <meta property="og:url" content="https://yourwebsite.com">
   <meta property="og:type" content="website">
@@ -23,15 +23,19 @@
   <meta name="twitter:title" content="Harmony Maritime Solutions | AI-Driven Sustainable Maritime Innovations">
   <meta name="twitter:description" content="Explore how Harmony Maritime Solutions is advancing the maritime industry with AI-driven solutions for sustainability and efficiency.">
   <meta name="twitter:image" content="https://yourwebsite.com/path-to-your-logo-or-main-image.jpg">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="logo.png"> <!-- Transparent logo as favicon -->
+
   <style>
     /* Custom Styles */
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
       color: #333;
+      margin: 0;
+      padding: 0;
     }
 
     section h2 {
@@ -39,13 +43,12 @@
       letter-spacing: 1.5px;
     }
 
-    /* Matching the background color to the image's blue */
     .bg-matching-blue {
-      background-color: #007bff; /* Updated blue background */
+      background-color: #007bff;
     }
 
     .hero-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662915.jpg');
+      background-image: url('https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662915.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -53,7 +56,7 @@
     }
 
     .contact-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/transport-logistics-products_23-2151541855.jpg');
+      background-image: url('https://img.freepik.com/free-photo/transport-logistics-products_23-2151541855.jpg');
       background-size: cover;
       background-position: center;
       padding: 60px 0;
@@ -69,12 +72,6 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .service-card:hover {
-      background-color: #e0f7fa;
-      transform: translateY(-5px);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
     .modal {
       transition: opacity 0.25s ease;
       opacity: 0;
@@ -86,32 +83,43 @@
       pointer-events: auto;
     }
 
-    /* Adjusted styles for selective rounded corners */
     .logo {
-      height: 40px; /* Smaller height */
-      background-color: transparent; /* Ensure the logo has a transparent background */
+      height: 40px;
       padding: 0;
       margin: 0;
-      border: none;
-      border-radius: 50% 50% 50% 0; /* Rounded on top-left, top-right, and bottom-right, but not bottom-left */
+      border-radius: 50%;
       display: inline-block;
     }
 
     @media (min-width: 768px) {
       .logo {
-        height: 60px; /* Resized on larger screens */
+        height: 60px;
       }
+    }
+
+    /* Make buttons visually appealing */
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body>
 
   <!-- Navigation -->
-  <nav class="bg-matching-blue p-4 shadow-md"> <!-- Updated the nav bar background color -->
+  <nav class="bg-matching-blue p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <a href="#" class="flex items-center text-white text-2xl font-bold">
-        <img src="logo.png" alt="Harmony Logo" class="logo mr-3"> <!-- Logo with selective rounded corners -->
+        <img src="logo.png" alt="Harmony Logo" class="logo mr-3">
         Harmony Maritime Solutions
       </a>
       <ul class="hidden md:flex space-x-6 text-white">
@@ -153,43 +161,22 @@
       <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Services</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <!-- Service 1 -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
           <img src="https://www.superyachtnews.com/articles/17508/Hull%20Robot.jpg" alt="Barnacle Cleaning" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Barnacle Cleaning</h3>
           <p>Our eco-friendly robotic systems ensure hulls are clean from barnacles, reducing fuel consumption and increasing vessel efficiency.</p>
         </div>
         <!-- Service 2 -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
           <img src="https://global.canon/en/technology/img/frontier/head_img26.jpg" alt="Hull Crack Detection" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Hull Crack Detection</h3>
           <p>Our AI-driven crack detection technology identifies micro-cracks and structural weaknesses to keep your vessels safe and compliant.</p>
         </div>
         <!-- Service 3 -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow service-card">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center hover-grow">
           <img src="https://img.freepik.com/free-photo/logistics-means-transport-together-with-technological-futuristic-holograms_23-2151662914.jpg" alt="Maritime Security" class="w-full h-48 object-cover rounded-md mb-4">
           <h3 class="text-xl font-semibold mb-2">Maritime Security</h3>
           <p>Our AI-powered cameras monitor underwater and above water, ensuring dock, marina, and vessel security 24/7.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <section id="products" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Our Products</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
-        <!-- Product 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
-          <img src="https://assets.newatlas.com/dims4/default/78e104d/2147483647/strip/true/crop/640x427+0+27/resize/840x560!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fhull-bug.jpg" alt="Eco-Robotic Cleaner" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-xl font-semibold mb-2">Eco-Robotic Cleaner</h3>
-          <p>This eco-friendly, automated system performs complete underwater hull cleanings using non-abrasive technologies, helping vessels reduce drag and fuel consumption.</p>
-        </div>
-        <!-- Product 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
-          <img src="https://safety4sea.com/wp-content/uploads/2016/01/Sky-Futures-drone-inspection-e1537861025376.jpg" alt="AI Inspection Drone" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-xl font-semibold mb-2">AI Inspection Drone</h3>
-          <p>Our AI-powered drone inspects both hull and superstructure for damage or maintenance needs, providing real-time data and alerts to ensure vessel integrity.</p>
         </div>
       </div>
     </div>
@@ -209,14 +196,14 @@
           <button id="demoButton" class="px-6 py-3 bg-green-500 rounded-full text-white text-lg font-semibold hover:bg-green-600 transition hover-grow">View Demo</button>
         </div>
       </div>
-    </div>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 modal">
-      <div class="bg-white rounded-lg p-8 text-center" id="modalContent">
-        <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
-        <p class="mb-6">Stay tuned for the demo of our exciting new Mantis Vision System!</p>
-        <button id="closeModal" class="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 transition">Close</button>
+      <!-- Modal -->
+      <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 modal">
+        <div class="bg-white rounded-lg p-8 text-center" id="modalContent">
+          <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
+          <p class="mb-6">Stay tuned for the demo of our exciting new Mantis Vision System!</p>
+          <button id="closeModal" class="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 transition">Close</button>
+        </div>
       </div>
     </div>
   </section>
@@ -293,5 +280,6 @@
       }
     });
   </script>
+
 </body>
 </html>
