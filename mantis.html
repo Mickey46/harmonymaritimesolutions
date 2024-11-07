@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOv8 Object Detection - Custom Model</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video, canvas { border: 1px solid black; margin: 10px; }
+    #loading { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>YOLOv8 Object Detection with Custom ONNX Model</h1>
+  <p>Allow access to your webcam and see YOLO detecting objects in real-time!</p>
+
+  <!-- Flex container to align video and canvas side by side -->
+  <div id="container">
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+  </div>
+
+  <p id="loading">Loading YOLO model...</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> <!-- TensorFlow.js -->
+  <script>
+    const video = document.getElementById('webcam');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const loadingText = document.getElementById('loading');
+
+    async function setupWebcam() {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      video.srcObject = stream;
+      return new Promise((resolve) => {
+        video.onloadedmetadata = () => resolve(video);
+      });
+    }
+
+    async function loadYOLOModel() {
+      // Using the updated Google Drive direct download link
+      const modelUrl = 'https://drive.google.com/uc?export=download&id=1d0_bitmuRGqVXWjnHuUomWkx0BK46bH1'; // Custom YOLOv8 model link
+      const model = await tf.loadGraphModel(modelUrl, {
+        onProgress: (fraction) => {
+          loadingText.innerHTML = `Model loading... ${(fraction * 100).toFixed(2)}%`;
+        }
+      });
+      loadingText.style.display = 'none'; // Hide loading text once the model is loaded
+      return model;
+    }
+
+    function drawBoundingBoxes(predictions, width, height) {
+      predictions.forEach((prediction) => {
+        const [x, y, w, h] = prediction.bbox;
+        const text = `${prediction.class} (${(prediction.score * 100).toFixed(2)}%)`;
+
+        // Draw bounding box
+        ctx.strokeStyle = "green";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x * width, y * height, w * width, h * height);
+
+        // Draw label
+        ctx.fillStyle = "green";
+        ctx.font = "16px Arial";
+        ctx.fillText(text, x * width, y * height > 10 ? y * height - 5 : 10);
+      });
+    }
+
+    async function detectObjects(model) {
+      const loop = async () => {
+        const inputTensor = tf.browser.fromPixels(video)
+          .resizeBilinear([640, 640])  // Resize to 640x640
+          .expandDims(0)
+          .toFloat()
+          .div(tf.scalar(255));
+
+        const predictions = await model.executeAsync(inputTensor);
+
+        // Clear canvas and draw detections
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Draw Bounding Boxes
+        const processedPredictions = processPredictions(predictions);
+        drawBoundingBoxes(processedPredictions, canvas.width, canvas.height);
+
+        requestAnimationFrame(loop); // Continue detection loop
+      };
+      
+      loop();  // Start the detection loop
+    }
+
+    // Process predictions (mock function for now)
+    function processPredictions(predictions) {
+      // Modify this based on YOLOv8 output format
+      return [{
+        bbox: [0.1, 0.2, 0.3, 0.4],  // x, y, width, height (relative to 1)
+        class: 'person',
+        score: 0.85
+      }];
+    }
+
+    // Initialize
+    setupWebcam().then(() => {
+      loadYOLOModel().then(model => {
+        detectObjects(model);
+      });
+    });
+  </script>
+</body>
+</html>
+
